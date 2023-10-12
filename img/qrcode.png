@@ -28,7 +28,7 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
     <style>
@@ -71,7 +71,7 @@
           <a href="#home" class="nav-item nav-link active">Home</a>
           <a href="#about" class="nav-item nav-link">About</a>
           <a href="#family" class="nav-item nav-link">Dress Code</a>
-          <a href="#invatation" class="nav-item nav-link">Invitation</a>
+          <!-- <a href="#gallery" class="nav-item nav-link">Gallery</a> -->
         </div>
         <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
           <h1 class="font-secondary text-white mb-n2">
@@ -231,53 +231,8 @@
     </div>
     <!-- Video Modal End -->
 
-    <!-- Video Modal Start -->
-    <div
-      class="modal fade"
-      id="qrModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <!-- 16:9 aspect ratio -->
-            <div class="embed-responsive">
-              <div id="qrcode-container">
-                <!-- <div id="qrcode" class="qrcode"></div>
-                  <h4>With some styles</h4> -->
-                <h6
-                  class="text-uppercase text-primary mb-3"
-                  style="letter-spacing: 3px; text-align: center"
-                >
-                  Download QR Here!
-                </h6>
-                <div id="qrcode-2" class="qrcode"></div>
-              </div>
-              <!-- qr code modal -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Video Modal End -->
-
     <!-- About Start -->
-    <div
-      class="container-fluid py-5"
-      id="about"
-      style="border-bottom-width: 2px; border-color: #818491"
-    >
+    <div class="container-fluid py-5" id="about">
       <div class="container py-5">
         <div class="section-title position-relative text-center">
           <h6
@@ -305,15 +260,16 @@
                 <i class="fa fa-male text-primary pr-3"></i>Wilson
               </h3>
               <div class="position-relative">
-                <a
-                  class="btn btn-outline-primary btn-square mr-1"
-                  href="https://www.facebook.com/jayar.cabanlit/"
+                <a class="btn btn-outline-primary btn-square mr-1" href="#"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a class="btn btn-outline-primary btn-square mr-1" href="#"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
-
-                <a
-                  class="btn btn-outline-primary btn-square"
-                  href="https://www.instagram.com/jayarvergaramarcelo/?igshid=OGQ5ZDc2ODk2ZA%3D%3D&fbclid=IwAR3BRihgEhz6G9idYAg_ctAixAimkYDQ4zBU3GonmZyKaT2SDdgMYQCFgyw"
+                <a class="btn btn-outline-primary btn-square mr-1" href="#"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a class="btn btn-outline-primary btn-square" href="#"
                   ><i class="fab fa-instagram"></i
                 ></a>
               </div>
@@ -350,15 +306,17 @@
                 <i class="fa fa-female text-primary pr-3"></i>Shaina
               </h3>
               <div class="position-relative">
-                <a
-                  class="btn btn-outline-primary btn-square mr-1"
-                  href="https://www.facebook.com/shaina.marie.9693"
+                <a class="btn btn-outline-primary btn-square mr-1" href="#"
                   ><i class="fab fa-instagram"></i
                 ></a>
-                <a
-                  class="btn btn-outline-primary btn-square mr-1"
-                  href="https://www.instagram.com/shine_shaiin/?igshid=OGQ5ZDc2ODk2ZA%3D%3D&fbclid=IwAR2Hy6X7fmr4Kvt855H5I7MW4E5Q2THOx8-TaziPeo5ppaJ1LYLE9B7WanE"
+                <a class="btn btn-outline-primary btn-square mr-1" href="#"
                   ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a class="btn btn-outline-primary btn-square mr-1" href="#"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a class="btn btn-outline-primary btn-square" href="#"
+                  ><i class="fab fa-instagram"></i
                 ></a>
               </div>
             </div>
@@ -541,53 +499,6 @@
                   <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
               </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Friends & Family End -->
-
-    <div class="container-fluid py-5 bg-gallery" id="invatation">
-      <div class="container pt-5 pb-3">
-        <div class="section-title position-relative text-center">
-          <h6
-            class="text-uppercase text-primary mb-3"
-            style="letter-spacing: 3px"
-          >
-            Find you name here
-          </h6>
-          <h1 class="font-secondary display-4">Invitation</h1>
-          <!-- <h1 class="font-secondary display-4">Principal sponsor</h1> -->
-          <i class="far fa-heart text-dark"></i>
-        </div>
-        <div class="row">
-          <!-- <div class="col-12 text-center mb-2">
-            <ul class="list-inline mb-4" id="portfolio-flters">
-              <li
-                class="btn btn-outline-primary font-weight-bold m-1 py-2 px-4"
-                data-filter=".first-invation"
-              >
-                Invation
-              </li>
-            </ul>
-          </div> -->
-        </div>
-        <div class="row portfolio-container">
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item first-invation">
-            <div class="position-relative mb-2">
-              <img class="img-fluid w-100" src="img/invatation-1.jpg" alt="" />
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item first-invation">
-            <div class="position-relative mb-2">
-              <img class="img-fluid w-100" src="img/invatation-2.jpg" alt="" />
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item first-invation">
-            <div class="position-relative mb-2">
-              <img class="img-fluid w-100" src="img/invatation-3.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -808,11 +719,7 @@
     </div>
     <!-- Event End -->
 
-    <div
-      class="container-fluid py-5"
-      id="reminder"
-      style="background-color: #f0f0f0"
-    >
+    <div class="container-fluid py-5" id="reminder">
       <div class="container py-5">
         <div class="section-title position-relative text-center">
           <h6
@@ -825,7 +732,7 @@
           <i class="far fa-heart text-dark"></i>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
             <!-- <h5 class="font-weight-normal text-muted mb-3 pb-3">
               Clita ipsum aliquyam dolor diam dolores elitr nonumy. Rebum sea
               vero ipsum eirmod tempor kasd. Diam amet lorem erat eos sit lorem
@@ -952,6 +859,12 @@
                   Submit
                 </button>
               </div>
+              <div id="qrcode-container">
+                <!-- <div id="qrcode" class="qrcode"></div>
+                <h4>With some styles</h4> -->
+                <div id="qrcode-2" class="qrcode"></div>
+                <a id="downloadLink" download="qrcode.png">Download QR Code</a>
+              </div>
             </div>
           </div>
         </div>
@@ -985,9 +898,9 @@
           ></a>
         </div>
         <div class="d-flex justify-content-center py-2">
-          <p class="text-white" href="#">cabanlit7@gmail.com</p>
+          <p class="text-white" href="#">info@example.com</p>
           <span class="px-3">|</span>
-          <p class="text-white" href="#">+639917723680</p>
+          <p class="text-white" href="#">+012 345 6789</p>
         </div>
         <p class="m-0">
           &copy; <a class="text-primary" href="#">Domain Name</a>. Designed by
@@ -1017,5 +930,43 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-  </body>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
 </html>
