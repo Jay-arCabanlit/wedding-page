@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wil & Shai</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+   
+
+    <!-- Favicon -->
+   
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      #qrcode-container {
+        display: none;
+      }
+
+      .qrcode {
+        padding: 16px;
+      }
+      .qrcode img {
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body data-spy="scroll" data-target=".navbar" data-offset="51">
+ 
+   
+
+    <!-- About Start -->
+    <div
+      class="container-fluid py-5"
+      id="about"
+      style="border-bottom-width: 2px; border-color: #818491"
+    >
+      <div class="container py-5">
+        <h1 class="text-uppercase text-primary mb-3">QR Code Reader</h1>
+
+        <!-- QR SCANNER CODE BELOW  -->
+        <div class="row">
+          <div class="col">
+            <div id="reader"></div>
+          </div>
+          <div
+          class="modal fade"
+          id="modaQR"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <!-- <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+               
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button> -->
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive">
+                    <div class="d-flex flex-column justify-content-center">
+                        <h5 class="text-uppercase text-primary mb-3">Guest Information</h5>
+                        <Text>Name: <Text id="fname"></Text></Text>
+                        <Text>Role: <Text id="role"></Text></Text>
+                        <Text>None Pork: <Text id="nonePork"></Text></Text>
+                        <Text>Table: <Text id="tableyes"></Text></Text>
+                        <button class="btn btn-primary font-weight-bold py-3 px-5" onClick="window.location.reload();">Confirm</button>
+                    </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="col" style="padding: 30px">
+            <h4>Scan Result </h4>
+            <div id="result">
+              
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Footer End -->
+
+    <!-- Scroll to Bottom -->
+    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"
+      ><i class="fa fa-angle-double-up"></i
+    ></a>
+
+    <!-- <script src="js/saving.js"></script> -->
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+<script>
+    // When scan is successful fucntion will produce data
+function onScanSuccess(qrCodeMessage) {
+  document.getElementById("result").innerHTML =
+    '<span class="result">' + qrCodeMessage + "</span>";
+        var qr_value = qrCodeMessage.toString()
+        console.log(qr_value)
+
+    $.ajax({
+      url: "https://api-ap-northeast-1.hygraph.com/v2/clniskp4p10mn01t31tnzagsc/master",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({
+        query: `query Assets {
+  rsvp(where: {id: "${qr_value}"}) {
+    mobileNumber
+    nonePork
+    email
+    fullName
+    attend
+  }
+}
+`,
+      }),
+      success: function (response) {
+
+        // Handle the GraphQL response here
+        if(response.data.rsvp != null){
+            $("#modaQR").modal();
+
+// ✅ Append text to element
+const name = document.getElementById('fname');
+const nametext = document.createTextNode(`${response.data.rsvp.fullName}`);
+name.appendChild(nametext);
+
+const role = document.getElementById('role');
+const roletext = document.createTextNode(`${response.data.rsvp.nonePork}`);
+role.appendChild(roletext);
+
+const nonepork = document.getElementById('nonePork');
+const noneporkText = document.createTextNode(`${response.data.rsvp.nonePork}`);
+nonepork.appendChild(noneporkText);
+
+const table = document.getElementById('tableyes');
+const tabletext = document.createTextNode(`${response.data.rsvp.nonePork}`);
+table.appendChild(tabletext);
+        } else {
+            alert('No data Found')
+        }
+
+
+
+       
+      },
+      error: function (error) {
+        // Handle errors here
+        alert(error)
+      },
+    });
+
+}
+
+// When scan is unsuccessful fucntion will produce error message
+function onScanError(errorMessage) {
+  // Handle Scan Error
+}
+
+// Setting up Qr Scanner properties
+var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
+  fps: 10,
+  qrbox: 250
+});
+
+// in
+html5QrCodeScanner.render(onScanSuccess, onScanError);
+
+</script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>

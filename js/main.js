@@ -1,6 +1,16 @@
 (function ($) {
   "use strict";
 
+  $(window).on('scroll', function() {
+    if(localStorage.getItem("save") == 'true'){
+      $("#form-rsv").hide()
+      $("#form-thank-you").show()
+    } else {
+      $("#form-thank-you").hide()
+      $("#form-rsv").show()
+    }
+  });
+
   // Navbar on scrolling
   $(window).scroll(function () {
     if ($(this).scrollTop() > 200) {
@@ -171,6 +181,23 @@
     });
 
     document.getElementById("qrcode-container").style.display = "block";
+    localStorage.setItem("save", true);
     $("#qrModal").modal();
+
+ 
   }
+
+  $("#downloadQR").click(function () {
+  // Convert the QR code to a data URL
+  const qrCodeDataURL = document.querySelector("#qrcode-2 img").src;
+
+  // Create a temporary anchor element
+  const a = document.createElement("a");
+  a.href = qrCodeDataURL;
+  a.download = "qrcode.png";
+
+  // Trigger a click event on the anchor element to download the QR code
+  a.click();
+  location.reload();
+  })
 })(jQuery);

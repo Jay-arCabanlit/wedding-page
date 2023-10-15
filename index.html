@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <title>Wil & Shai</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Free HTML Templates" name="keywords" />
-    <meta content="Free HTML Templates" name="description" />
+   
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" />
@@ -122,7 +121,7 @@
                     We're getting married
                   </h3>
                 </div>
-                <button
+                <!-- <button
                   type="button"
                   class="btn-play mx-auto"
                   data-toggle="modal"
@@ -130,7 +129,7 @@
                   data-target="#videoModal"
                 >
                   <span></span>
-                </button>
+                </button> -->
               </div>
             </div>
           </div>
@@ -253,7 +252,7 @@
             </button>
             <!-- 16:9 aspect ratio -->
             <div class="embed-responsive">
-              <div id="qrcode-container">
+              <div id="qrcode-container" class="d-flex flex-column justify-content-center">
                 <!-- <div id="qrcode" class="qrcode"></div>
                   <h4>With some styles</h4> -->
                 <h6
@@ -263,6 +262,7 @@
                   Download QR Here!
                 </h6>
                 <div id="qrcode-2" class="qrcode"></div>
+                <button class="btn btn-primary font-weight-bold py-3 px-5" id="downloadQR" >Download QR Code</button>
               </div>
               <!-- qr code modal -->
             </div>
@@ -785,8 +785,8 @@
               <img class="img-fluid mb-4" src="img/event-1.jpg" alt="" />
               <h4 class="mb-3">The Reception</h4>
               <p class="mb-2">
-                Please join us for dinner and celebration at Casa D' Vans
-                Mountain Resort at 5:00 PM. Kindly present your QR code
+                Please join us for dinner and celebration at <a href="https://maps.app.goo.gl/jgLzQWPbg1SrjYZi9">Casa D' Vans
+                  Mountain Resort</a> at 5:00 PM. Kindly present your QR code
                 generated through the RSVP upon entering. For the safety and
                 security of everybody, STRICTLY NO QR NO ENTRY.
               </p>
@@ -798,9 +798,10 @@
               <h4 class="mb-3">Church</h4>
               <p class="mb-2">
                 Requesting your pressence at the ceremony of our union to be
-                held at Sta. Cruz Parish, Brgy. Poblacion, Maasim, Sarangani on
+                held at               <a href="https://maps.app.goo.gl/M2K8ANWbKh94o9kg6">Sta. Cruz Parish, Brgy. Poblacion, Maasim, Sarangani</a> on
                 Thursday, November 16, 2023 at 3:00 in the afternoon.
               </p>
+
             </div>
           </div>
         </div>
@@ -863,6 +864,8 @@
       </div>
     </div>
 
+  
+
     <!-- RSVP Start -->
     <div class="container-fluid py-5" id="rsvp">
       <div class="container py-5">
@@ -878,7 +881,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <div class="text-center">
+            <div class="text-center" id="form-rsv">
               <form>
                 <div class="form-row">
                   <div class="form-group col-sm-12">
@@ -952,6 +955,9 @@
                   Submit
                 </button>
               </div>
+            </div>
+            <div class="text-center" id="form-thank-you">
+              <Text>You already submit your entry!</Text>
             </div>
           </div>
         </div>

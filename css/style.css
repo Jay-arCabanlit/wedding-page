@@ -10172,3 +10172,21 @@ a.text-dark:focus {
     border-right: none !important;
   }
 }
+
+#reader {
+  width: 500px;
+}
+
+.result {
+  background-color: green;
+  color: #fff;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+#reader__scan_region {
+  background: white;
+}
