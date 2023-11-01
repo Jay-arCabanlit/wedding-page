@@ -198,6 +198,6 @@
 
   // Trigger a click event on the anchor element to download the QR code
   a.click();
-  location.reload();
+  
   })
 })(jQuery);
